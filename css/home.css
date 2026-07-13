@@ -1,22 +1,28 @@
 #ss_heroBanner
 {
     width: 100%;
-    margin: 20px 0;
-    border: 3px solid #003087;
+    margin: 24px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 #ss_welcomeSection
 {
     background-color: white;
-    padding: 16px;
+    padding: 24px;
     border-left: 4px solid #c8102e;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 #ss_keyDates
 {
     background-color: #e8eef7;
-    padding: 16px;
+    padding: 24px;
     border-left: 4px solid #003087;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
