@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FIFA World Cup 2026 - Travel Tools</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/travelTools.css">
+
+        <script src="js/travelTools.js"></script>
+    </head>
+
+    <body>
+        <h1>FIFA World Cup 2026 - Travel Tools</h1>
+
+        <span id="ss_hamburger" onclick="toggleMenu()">&#9776;</span>
+        <nav id="ss_navLinks">
+            <a href="home.html">Home</a>
+            <a href="index.html">Stadium Map</a>
+            <a href="information.html">Information</a>
+            <a href="travel-tools.html">Travel Tools</a>
+        </nav>
+
+        <hr>
+
+        <h2>Translator</h2>
+        <p>Translate text into the language of your World Cup destination.</p>
+
+        <label for="ss_language">Translate to:</label><br>
+        <select id="ss_language">
+            <option value="es">Spanish (Mexico)</option>
+            <option value="fr">French (Canada)</option>
+            <option value="en">English (USA / Canada)</option>
+            <option value="pt">Portuguese</option>
+            <option value="de">German</option>
+            <option value="ja">Japanese</option>
+            <option value="ar">Arabic</option>
+            <option value="zh">Chinese (Simplified)</option>
+        </select>
+
+        <br><br>
+
+        <label for="ss_inputText">Enter text:</label><br>
+        <textarea id="ss_inputText" placeholder="Type something to translate..."></textarea>
+
+        <button onclick="translateText()">Translate</button>
+
+        <div id="ss_translatedText"></div>
+    </body>
+</html>

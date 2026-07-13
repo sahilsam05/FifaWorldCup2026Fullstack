@@ -1,0 +1,179 @@
+[
+    {
+        "name": "MetLife Stadium",
+        "city": "East Rutherford, New Jersey",
+        "country": "USA",
+        "capacity": 82500,
+        "description": "Host of the 2026 World Cup Final. Located in the New York metropolitan area.",
+        "matches": [
+            "Final - 19th July 2026",
+            "Third Place Match",
+            "Semi-Final",
+            "Quarter-Final",
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/Metlife_stadium_(Aerial_view) (1).jpg",
+        "latitude": 40.8135,
+        "longitude": -74.0745,
+        "query": "MetLife Stadium East Rutherford New Jersey USA"
+    },
+    {
+        "name": "SoFi Stadium",
+        "city": "Inglewood, California",
+        "country": "USA",
+        "capacity": 70240,
+        "description": "A modern domed stadium in the Los Angeles area, opened in 2020.",
+        "matches": [
+            "Semi-Final",
+            "Quarter-Final",
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/SoFi_Stadium_2023 (1).jpg",
+        "latitude": 33.9534,
+        "longitude": -118.3392,
+        "query": "SoFi Stadium Inglewood California USA"
+    },
+    {
+        "name": "AT&T Stadium",
+        "city": "Arlington, Texas",
+        "country": "USA",
+        "capacity": 80000,
+        "description": "Known as Jerry World, one of the most iconic venues in American sport.",
+        "matches": [
+            "Semi-Final",
+            "Quarter-Final",
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/ATT_Stadium_02.jpg",
+        "latitude": 32.7480,
+        "longitude": -97.0946,
+        "query": "AT&T Stadium Arlington Texas USA"
+    },
+    {
+        "name": "Hard Rock Stadium",
+        "city": "Miami Gardens, Florida",
+        "country": "USA",
+        "capacity": 65326,
+        "description": "Home of the Miami Dolphins, offering a tropical atmosphere in sunny Florida.",
+        "matches": [
+            "Quarter-Final",
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/hardrock.jpg",
+        "latitude": 25.9580,
+        "longitude": -80.2388,
+        "query": "Hard Rock Stadium Miami Gardens Florida USA"
+    },
+    {
+        "name": "Allegiant Stadium",
+        "city": "Las Vegas, Nevada",
+        "country": "USA",
+        "capacity": 65000,
+        "description": "Home of the Las Vegas Raiders, a domed venue in the entertainment capital of the world.",
+        "matches": [
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/Allegiant Stadium.jpg",
+        "latitude": 36.0909,
+        "longitude": -115.1833,
+        "query": "Allegiant Stadium Las Vegas Nevada USA"
+    },
+    {
+        "name": "Lumen Field",
+        "city": "Seattle, Washington",
+        "country": "USA",
+        "capacity": 69000,
+        "description": "Renowned for having some of the loudest fans in North American sport.",
+        "matches": [
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/lumenfield.jpg",
+        "latitude": 47.5952,
+        "longitude": -122.3316,
+        "query": "Lumen Field Seattle Washington USA"
+    },
+    {
+        "name": "BC Place",
+        "city": "Vancouver, British Columbia",
+        "country": "Canada",
+        "capacity": 54500,
+        "description": "Canada's largest domed stadium, set in the heart of Vancouver.",
+        "matches": [
+            "Quarter-Final",
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/bcplace.jpg",
+        "latitude": 49.2768,
+        "longitude": -123.1118,
+        "query": "BC Place Stadium Vancouver British Columbia Canada"
+    },
+    {
+        "name": "BMO Field",
+        "city": "Toronto, Ontario",
+        "country": "Canada",
+        "capacity": 45736,
+        "description": "Canada's premier football stadium, located on the waterfront of Lake Ontario.",
+        "matches": [
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/Toronto_BMO_Field_in_2024 (1).jpg",
+        "latitude": 43.6332,
+        "longitude": -79.4187,
+        "query": "BMO Field Toronto Ontario Canada"
+    },
+    {
+        "name": "Estadio Azteca",
+        "city": "Mexico City",
+        "country": "Mexico",
+        "capacity": 87523,
+        "description": "The only stadium to have hosted two World Cup Finals (1970 and 1986).",
+        "matches": [
+            "Quarter-Final",
+            "Round of 16",
+            "Group Stage",
+            "Opening Match - 11th June 2026"
+        ],
+        "image": "images/Estadio Azteca.jpg",
+        "latitude": 19.3029,
+        "longitude": -99.1505,
+        "query": "Estadio Azteca Mexico City Mexico"
+    },
+    {
+        "name": "Estadio BBVA",
+        "city": "Monterrey, Nuevo Leon",
+        "country": "Mexico",
+        "capacity": 53500,
+        "description": "A stunning stadium set against the backdrop of Cerro de la Silla mountain in Monterrey.",
+        "matches": [
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/el-estadio-bbva-casa.jpg",
+        "latitude": 25.6693,
+        "longitude": -100.2435,
+        "query": "Estadio BBVA Monterrey Mexico"
+    },
+    {
+        "name": "Estadio Akron",
+        "city": "Guadalajara, Jalisco",
+        "country": "Mexico",
+        "capacity": 49850,
+        "description": "Home of Club Deportivo Guadalajara, in the birthplace of mariachi music and tequila.",
+        "matches": [
+            "Round of 16",
+            "Group Stage"
+        ],
+        "image": "images/Estadio Akron.jpg",
+        "latitude": 20.6817,
+        "longitude": -103.4665,
+        "query": "Estadio Akron Guadalajara Mexico"
+    }
+]

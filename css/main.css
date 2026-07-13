@@ -1,0 +1,74 @@
+body
+{
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+h1
+{
+    background-color: #003087;
+    color: white;
+    padding: 15px 20px;
+    margin: 0 -20px 0 -20px;
+}
+
+h2
+{
+    color: #003087;
+}
+
+#ss_hamburger
+{
+    display: none;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+nav
+{
+    background-color: #e8eef7;
+    padding: 10px 0;
+}
+
+nav a
+{
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #0047AB;
+}
+
+nav a:hover
+{
+    color: #c8102e;
+}
+
+hr
+{
+    margin: 20px 0;
+    border: none;
+    border-top: 2px solid #003087;
+}
+
+@media (max-width: 600px)
+{
+    #ss_hamburger
+    {
+        display: block;
+    }
+
+    #ss_navLinks
+    {
+        display: none;
+    }
+
+    #ss_navLinks a
+    {
+        display: block;
+        margin: 8px 0;
+    }
+}

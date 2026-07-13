@@ -1,0 +1,22 @@
+#ss_heroBanner
+{
+    width: 100%;
+    margin: 20px 0;
+    border: 3px solid #003087;
+}
+
+#ss_welcomeSection
+{
+    background-color: white;
+    padding: 16px;
+    border-left: 4px solid #c8102e;
+    margin-bottom: 20px;
+}
+
+#ss_keyDates
+{
+    background-color: #e8eef7;
+    padding: 16px;
+    border-left: 4px solid #003087;
+    margin-bottom: 20px;
+}
