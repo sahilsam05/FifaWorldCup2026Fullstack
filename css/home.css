@@ -36,6 +36,20 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.ss_homeList
+{
+    margin: 0 0 24px;
+    padding: 20px 24px 20px 44px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ss_homeList li
+{
+    margin-bottom: 8px;
+}
+
 #ss_welcomeSection:hover
 {
     transform: translateY(-2px);

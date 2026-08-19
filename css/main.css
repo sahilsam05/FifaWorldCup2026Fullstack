@@ -63,8 +63,11 @@ h2
 
 nav
 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
     background-color: #ffffff;
-    padding: 16px 0;
+    padding: 12px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     margin-bottom: 24px;
@@ -72,7 +75,7 @@ nav
 
 nav a
 {
-    margin-right: 24px;
+    margin-right: 0;
     text-decoration: none;
     font-weight: 600;
     color: #0047AB;
@@ -85,6 +88,22 @@ nav a:hover
 {
     color: #c8102e;
     background-color: #fff5f5;
+}
+
+nav a.ss_active
+{
+    color: white;
+    background-color: #003087;
+}
+
+a
+{
+    color: #0047AB;
+}
+
+a:hover
+{
+    color: #c8102e;
 }
 
 hr
@@ -126,7 +145,6 @@ hr
     #ss_navLinks
     {
         display: none;
-        flex-direction: column;
         background-color: white;
         padding: 16px;
         border-radius: 8px;
@@ -137,7 +155,6 @@ hr
     #ss_navLinks a
     {
         display: block;
-        margin: 8px 0;
         padding: 12px 16px;
     }
 

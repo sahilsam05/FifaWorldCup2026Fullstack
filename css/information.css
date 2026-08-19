@@ -5,9 +5,19 @@ body
 
 .ss_stadiumCard
 {
-    border: thin solid #ccc;
-    padding: 16px;
-    margin-bottom: 20px;
+    border: thin solid #d5dce6;
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ss_stadiumCard:hover
+{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 48, 135, 0.12);
 }
 
 .ss_stadiumCard img
@@ -17,6 +27,7 @@ body
     margin-right: 16px;
     margin-bottom: 8px;
     border: thin solid #ccc;
+    border-radius: 6px;
 }
 
 .ss_stadiumCard h2
@@ -27,6 +38,7 @@ body
 .ss_stadiumCard ul
 {
     margin: 0;
+    padding-left: 20px;
 }
 
 .ss_clearfix
