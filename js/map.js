@@ -1,3 +1,5 @@
+let stadiums = []
+
 function toggleMenu()
 {
     let nav = document.getElementById("ss_navLinks")
@@ -11,111 +13,56 @@ function toggleMenu()
     }
 }
 
-let map = null
-let service = null
-let infoWindow = null
-let markers = []
-
-function loadMap()
+function getMarkerPosition(stadium)
 {
-    const CONTENT = 0,
-          LATITUDE = 1,
-          LONGITUDE = 2,
-          STADIUM = 3
+    const MIN_LONGITUDE = -130,
+          MAX_LONGITUDE = -65,
+          MIN_LATITUDE = 15,
+          MAX_LATITUDE = 55
 
-    map = new google.maps.Map(document.getElementById("ss_map"), {
-        mapId: "MY_MAP_ID",
-        zoom: 4,
-        center: new google.maps.LatLng(37.5, -95.0),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    })
+    return {
+        left: ((stadium.longitude - MIN_LONGITUDE) / (MAX_LONGITUDE - MIN_LONGITUDE)) * 100,
+        top: ((MAX_LATITUDE - stadium.latitude) / (MAX_LATITUDE - MIN_LATITUDE)) * 100
+    }
+}
 
-    infoWindow = new google.maps.InfoWindow()
-    service = new google.maps.places.PlacesService(map)
+function displayStadium(stadium)
+{
+    let matchesHtml = stadium.matches.map(match => `<li>${match}</li>`).join("")
 
-    fetch("stadiums.json")
-    .then(response => response.json())
-    .then(stadiums =>
+    document.getElementById("ss_stadiumDetails").innerHTML = `<img src="${stadium.image}" alt="${stadium.name}">
+                                                               <div>
+                                                                   <h2>${stadium.name}</h2>
+                                                                   <p><strong>Location:</strong> ${stadium.city}, ${stadium.country}</p>
+                                                                   <p><strong>Capacity:</strong> ${stadium.capacity.toLocaleString()}</p>
+                                                                   <p>${stadium.description}</p>
+                                                                   <p><strong>World Cup 2026 Fixtures:</strong></p>
+                                                                   <ul>${matchesHtml}</ul>
+                                                               </div>`
+
+    document.querySelectorAll(".ss_marker").forEach(marker => marker.classList.remove("ss_selectedMarker"))
+    document.querySelector(`[data-stadium="${stadium.name}"]`).classList.add("ss_selectedMarker")
+}
+
+function createMarkers()
+{
+    let markerContainer = document.getElementById("ss_markers")
+
+    stadiums.forEach(stadium =>
     {
-        let locations = stadiums.map(stadium =>
-        {
-            let matchesHtml = stadium.matches.map(match => `<li>${match}</li>`).join("")
+        let position = getMarkerPosition(stadium)
+        let marker = document.createElement("button")
 
-            let stadiumContent = `<div id="ss_stadiumContent">
-                                      <h2>${stadium.name}</h2>
-                                      <p>${stadium.city}, ${stadium.country}</p>
-                                      <img src="${stadium.image}" alt="${stadium.name}">
-                                      <p>${stadium.description}</p>
-                                      <p><strong>Capacity:</strong> ${stadium.capacity.toLocaleString()}</p>
-                                      <p><strong>World Cup 2026 Fixtures:</strong></p>
-                                      <ul>${matchesHtml}</ul>
-                                  </div>`
+        marker.className = "ss_marker"
+        marker.dataset.stadium = stadium.name
+        marker.style.left = `${position.left}%`
+        marker.style.top = `${position.top}%`
+        marker.title = `${stadium.name}, ${stadium.city}`
+        marker.setAttribute("aria-label", `${stadium.name}, ${stadium.city}`)
+        marker.innerHTML = `<span>${stadium.name}</span>`
+        marker.onclick = () => displayStadium(stadium)
 
-            return [stadiumContent, stadium.latitude, stadium.longitude, stadium]
-        })
-
-        locations.forEach(location =>
-        {
-            let icon = document.createElement("img")
-            icon.src = "images/stadiumMarker.png"
-            icon.style.width = "32px"
-            icon.style.height = "32px"
-
-            let marker = new google.maps.marker.AdvancedMarkerElement({
-                position: new google.maps.LatLng(location[LATITUDE], location[LONGITUDE]),
-                map: map,
-                content: icon
-            })
-
-            markers.push({marker, stadium: location[STADIUM]})
-
-            google.maps.event.addListener(marker, "click", () =>
-            {
-                infoWindow.setContent(location[CONTENT])
-                infoWindow.open(map, marker)
-
-                service.findPlaceFromQuery({
-                    query: location[STADIUM].query,
-                    fields: ["place_id"]
-                }, (results, status) =>
-                {
-                    if (status === google.maps.places.PlacesServiceStatus.OK && results.length > 0)
-                    {
-                        service.getDetails({
-                            placeId: results[0].place_id,
-                            fields: ["formatted_address", "rating", "photos"]
-                        }, (placeDetails, detailStatus) =>
-                        {
-                            if (detailStatus === google.maps.places.PlacesServiceStatus.OK)
-                            {
-                                let stadium = location[STADIUM]
-                                let matchesHtml = stadium.matches.map(match => `<li>${match}</li>`).join("")
-
-                                let photoHtml = ""
-                                if (placeDetails.photos && placeDetails.photos.length > 0)
-                                {
-                                    let photoUrl = placeDetails.photos[0].getUrl({maxWidth: 140})
-                                    photoHtml = `<img src="${photoUrl}" alt="${stadium.name}">`
-                                }
-
-                                let combinedContent = `<div id="ss_stadiumContent">
-                                                           <h2>${stadium.name}</h2>
-                                                           <p>${placeDetails.formatted_address || stadium.city + ", " + stadium.country}</p>
-                                                           ${photoHtml}
-                                                           <p>${stadium.description}</p>
-                                                           <p><strong>Capacity:</strong> ${stadium.capacity.toLocaleString()}</p>
-                                                           ${placeDetails.rating ? `<p><strong>Google Rating:</strong> ${placeDetails.rating} / 5</p>` : ""}
-                                                           <p><strong>World Cup 2026 Fixtures:</strong></p>
-                                                           <ul>${matchesHtml}</ul>
-                                                       </div>`
-
-                                infoWindow.setContent(combinedContent)
-                            }
-                        })
-                    }
-                })
-            })
-        })
+        markerContainer.appendChild(marker)
     })
 }
 
@@ -124,11 +71,32 @@ function filterMarkers()
     let country = document.getElementById("ss_filterCountry").value
     let stage = document.getElementById("ss_filterStage").value
 
-    markers.forEach(entry =>
+    stadiums.forEach(stadium =>
     {
-        let countryMatch = (country === "all" || entry.stadium.country === country)
-        let stageMatch = (stage === "all" || entry.stadium.matches.some(match => match.includes(stage)))
+        let countryMatch = (country === "all" || stadium.country === country)
+        let stageMatch = (stage === "all" || stadium.matches.some(match => match.includes(stage)))
+        let marker = document.querySelector(`[data-stadium="${stadium.name}"]`)
 
-        entry.marker.map = (countryMatch && stageMatch) ? map : null
+        marker.style.display = (countryMatch && stageMatch) ? "block" : "none"
     })
+}
+
+function loadMap()
+{
+    fetch("stadiums.json")
+    .then(response => response.json())
+    .then(data =>
+    {
+        stadiums = data
+        createMarkers()
+    })
+    .catch(() =>
+    {
+        document.getElementById("ss_stadiumDetails").innerHTML = "<p>Stadium information could not be loaded.</p>"
+    })
+}
+
+window.onload = () =>
+{
+    loadMap()
 }
